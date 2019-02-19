@@ -20,15 +20,32 @@ const useStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         flexWrap: 'wrap',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        alignContent: 'center',
+        '@media (min-width:600px)': {
+            flexDirection: 'row',
+            
+        }
     },
     wrapper: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center', 
-        height: '10rem',
+        minHeight: '13rem',
         margin: 'auto',
-        width: '80%'  
+        paddingBottom: '1.2rem',
+        width: '80%', 
+        '@media (min-width:600px)': {
+            minHeight: '10rem',
+        }
+    },
+    btn: {
+        height: '40px',
+        alignSelf: 'stretch',
+        marginTop: '1.1rem !important',
+        '@media (min-width:600px)': {
+            alignSelf: 'flex-end',
+        }
     }
 });
 
@@ -85,7 +102,9 @@ function Form({readAPIlyric}) {
                     />
                     <Button variant="contained" 
                             color="primary" 
-                            type="submit">
+                            type="submit"
+                            className={classes.btn}
+                    >
                         Search
                     </Button>
                 </form>

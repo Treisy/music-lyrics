@@ -1,14 +1,10 @@
 import React, {Fragment} from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 
 const useStyles = makeStyles({
     lyric: {
         whiteSpace: 'pre-wrap'
-    },
-    title: {
-        borderBottom: '3px solid #EB6864',
-        marginBottom: '2rem',
-        paddingBottom: '10px'
     }
 })
 
@@ -20,8 +16,12 @@ function Song({lyric}) {
 
     return (
         <Fragment>
-            <h2 className={classes.title}>Lyric Song</h2>  
-            <p className={classes.lyric}>{lyric}</p>
+            <Card>
+                <CardHeader title="Lyric Song"/>
+                <CardContent>
+                    <p className={classes.lyric}>{lyric}</p>
+                </CardContent>
+            </Card>   
         </Fragment>
         
     )

@@ -8,15 +8,33 @@ import Artist from './components/Artist';
 const useStyles = makeStyles({
   wrapper: {
     display: 'flex',
-    margin: '0 auto',
-    width: '80%'
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    margin: '0',
+    width: '90%',
+    '@media (min-width:600px)': {
+      flexWrap: 'no-wrap',
+      flexDirection: 'row',
+      margin: '0 auto',
+      width: '80%',
+    }
+  },
+  sectionWrapper: {
+    margin: '1rem',
+    width: '100%',
+    '@media (min-width:600px)': {
+      order: '1',
+      width: '50%',
+    }
   },
   artistWrapper: {
+    order: '1',
     margin: '1rem',
-    width: '50%'
-  },
-  songWrapper: {
-    width: '50%'
+    width: '100%',
+    '@media (min-width:600px)': {
+      order: '2',
+      width: '50%',
+    }
   }
 });
 
@@ -72,7 +90,7 @@ function App() {
         <div className={classes.artistWrapper}>
           <Artist info={info}/>
         </div>
-        <div className={classes.songWrapper}>
+        <div className={classes.sectionWrapper}>
           <Song lyric={lyric}/>
         </div>
       </div>
