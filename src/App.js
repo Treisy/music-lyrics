@@ -34,10 +34,31 @@ function App() {
 
     // Read url API
     const result = await axios(URL);
+
+    // Save artist in state
+    addArtist(artist);
     
     // Save lyric in state
     addLyric(result.data.lyrics);
-  }
+  };
+
+  // Read from API Info Artist
+  const readAPIinfo = async () => {
+
+    const URL = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
+    const result = await axios(URL);
+
+    addInfo(result.data.artists[0]);
+
+    console.log(info);
+  };
+
+
+  useEffect(
+    () => {
+      readAPIinfo()
+    }, [artist]
+  )
 
   return (
     <Fragment>
