@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/styles';
 import axios from 'axios';
 import Form from './components/Form';
 import Song from './components/Song';
+import Artist from './components/Artist';
 
 const useStyles = makeStyles({
   wrapper: {
@@ -11,6 +12,7 @@ const useStyles = makeStyles({
     width: '80%'
   },
   artistWrapper: {
+    margin: '1rem',
     width: '50%'
   },
   songWrapper: {
@@ -45,12 +47,14 @@ function App() {
   // Read from API Info Artist
   const readAPIinfo = async () => {
 
-    const URL = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
-    const result = await axios(URL);
-
-    addInfo(result.data.artists[0]);
-
-    console.log(info);
+    if(artist) {
+      const URL = `https://theaudiodb.com/api/v1/json/1/search.php?s=${artist}`;
+      const result = await axios(URL);
+  
+      addInfo(result.data.artists[0]);
+  
+    }
+    
   };
 
 
@@ -65,7 +69,9 @@ function App() {
       <Form readAPIlyric={readAPIlyric}/>
 
       <div className={classes.wrapper}>
-        <div className={classes.artistWrapper}>Artista</div>
+        <div className={classes.artistWrapper}>
+          <Artist info={info}/>
+        </div>
         <div className={classes.songWrapper}>
           <Song lyric={lyric}/>
         </div>
