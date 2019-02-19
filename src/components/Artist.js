@@ -36,9 +36,16 @@ function Artist({info}) {
                 <Typography component="p">{info.strBiographyEN}</Typography>
             </CardContent>
             <CardActions className={classes.actions} disableActionSpacing>
-                <a href={`https://${info.strWebsite}`} target="_blank" rel="noopener noreferrer">Website</a>
-                <a href={`https://${info.strFacebook}`} target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a href={`https://${info.strTwitter}`} target="_blank" rel="noopener noreferrer">strTwitter</a>
+                
+                <a href={`https://${info.strWebsite}`} target="_blank" rel="noopener noreferrer">
+                    <img src="../images/icon-website.png" width="30" height="30" alt="Website"/>
+                </a>
+                <a href={`https://${info.strFacebook}`} target="_blank" rel="noopener noreferrer">
+                    <img src="../images/icon-facebook.png" width="30" height="30" alt="Facebook"/>
+                </a>
+                <a href={`https://${info.strTwitter}`} target="_blank" rel="noopener noreferrer">
+                    <img src="../images/icon-twitter.png" width="30" height="30" alt="Twitter"/>
+                </a>
             </CardActions>
         </Card>
     )

@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     margin: '0',
     width: '90%',
     '@media (min-width:600px)': {
-      flexWrap: 'no-wrap',
+      flexWrap: 'nowrap !important',
       flexDirection: 'row',
       margin: '0 auto',
       width: '80%',
@@ -23,16 +23,16 @@ const useStyles = makeStyles({
     margin: '1rem',
     width: '100%',
     '@media (min-width:600px)': {
-      order: '1',
+      order: '2',
       width: '50%',
     }
   },
   artistWrapper: {
-    order: '1',
+    order: '2',
     margin: '1rem',
     width: '100%',
     '@media (min-width:600px)': {
-      order: '2',
+      order: '1',
       width: '50%',
     }
   }
