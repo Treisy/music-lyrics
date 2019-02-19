@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Paper, Typography, TextField, Button } from '@material-ui/core';
 
+
 const useStyles = makeStyles({
     hero: {
         backgroundImage: 'url("./images/hero.jpg")',
@@ -31,7 +32,7 @@ const useStyles = makeStyles({
     }
 });
 
-function Form() {
+function Form({readAPIlyric}) {
     const classes = useStyles();
 
     const [search, addSearch] = useState({
@@ -43,10 +44,14 @@ function Form() {
     const updateState = e => {
         addSearch({
             ...search,
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
+    };
 
-        console.log(search);
+    const handle_onSubmit = e => {
+        e.preventDefault();
+
+        readAPIlyric(search);
     };
 
     return (
@@ -59,7 +64,11 @@ function Form() {
                 Search Lyrics
             </Typography>
             <Paper className={classes.wrapper}>
-                <form className={classes.formContainer} noValidate autoComplete="off">
+                <form   onSubmit={handle_onSubmit}
+                        className={classes.formContainer} 
+                        noValidate 
+                        autoComplete="off"
+                >
                     <TextField  id="artist" 
                                 label="Artist"
                                 placeholder="Search Artist"
@@ -74,7 +83,11 @@ function Form() {
                                 name="song"
                                 onChange={updateState}
                     />
-                    <Button variant="contained" color="primary">Search</Button>
+                    <Button variant="contained" 
+                            color="primary" 
+                            type="submit">
+                        Search
+                    </Button>
                 </form>
             </Paper>
         </div>

@@ -8,9 +8,14 @@ function App() {
   const [lyric, addLyric] = useState([]);
   const [info, addInfo] = useState({});
 
+  // Read from API lyrics
+  const readAPIlyric = search => {
+    console.log(search)
+  }
+
   return (
     <Fragment>
-      <Form/>
+      <Form readAPIlyric={readAPIlyric}/>
     </Fragment>
   )  
 }
