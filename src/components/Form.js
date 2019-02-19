@@ -33,6 +33,22 @@ const useStyles = makeStyles({
 
 function Form() {
     const classes = useStyles();
+
+    const [search, addSearch] = useState({
+        artist: '',
+        song: ''
+    });
+
+    // Update input state
+    const updateState = e => {
+        addSearch({
+            ...search,
+            [e.target.name] : e.target.value
+        })
+
+        console.log(search);
+    };
+
     return (
         <div className={classes.hero}>
             <Typography component="h2"
@@ -48,11 +64,15 @@ function Form() {
                                 label="Artist"
                                 placeholder="Search Artist"
                                 margin="normal"
+                                name="artist"
+                                onChange={updateState}
                     />
                     <TextField  id="song" 
                                 label="Song"
                                 placeholder="Search Song"
                                 margin="normal"
+                                name="song"
+                                onChange={updateState}
                     />
                     <Button variant="contained" color="primary">Search</Button>
                 </form>
