@@ -1,3 +1,14 @@
+## Importante Notes
+- This project use node 9.10.0
+- This project use yarn
+- To make a deploy in Firebase you can run 
+    `yarn run build`
+    `firebase deploy`
+- Then select the `build` folder as a public
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
